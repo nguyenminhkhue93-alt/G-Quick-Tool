@@ -5064,11 +5064,11 @@
         vmax: 1100, mpptMin: 200, mpptMax: 1000, vstart: 200, impptMax: 30, iscMax: 40, k: 2, chosenN: 18
       },
       ac3: {
-        phase: '3P', invBrand: 'ALL', invId: '', mode: 'power', pKw: 100, iInput: 160.4, u: 400, pf: 1, wiring: '3P+N+PE', iscGrid: 25,
+        phase: '3P', invBrand: 'ALL', invType: 'ALL', invId: '', mode: 'power', pKw: 100, iInput: 160.4, u: 400, pf: 1, wiring: '3P+N+PE', iscGrid: 25,
         mat: 'Cu', ins: 'XLPE', struct: 'multicore', method: 'tray_E', len: 40, duLimit: 1.5, temp: 35, group: 1, sf: 1.25, cableMode: 'auto', manualSection: 95, manualNPar: 1
       },
       ac1: {
-        phase: '1P', invBrand: 'ALL', invId: '', mode: 'power', pKw: 5, iInput: 22.8, u: 230, pf: 1, wiring: '1P+N+PE', iscGrid: 6,
+        phase: '1P', invBrand: 'ALL', invType: 'ALL', invId: '', mode: 'power', pKw: 5, iInput: 22.8, u: 230, pf: 1, wiring: '1P+N+PE', iscGrid: 6,
         mat: 'Cu', ins: 'XLPE', struct: 'multicore', method: 'conduit_B2', len: 25, duLimit: 1.5, temp: 35, group: 1, sf: 1.25, cableMode: 'auto', manualSection: 10, manualNPar: 1
       },
       libTab: 'panels',
@@ -5228,7 +5228,7 @@
       const is3P = s.phase === '3P';
       const phaseInvs = getAllInverters().filter(i => i.phase === s.phase);
       const brands = ['ALL', ...new Set(phaseInvs.map(i => i.manufacturer))];
-      const fInvs = phaseInvs.filter(i => s.invBrand === 'ALL' || i.manufacturer === s.invBrand);
+      const fInvs = phaseInvs.filter(i => (s.invBrand === 'ALL' || i.manufacturer === s.invBrand) && (s.invType === 'ALL' || i.type === s.invType));
       const r = calcAc(s);
 
       const methods = s.struct === 'single_core'
@@ -5272,15 +5272,23 @@
 
         <div class="bg-white rounded-2xl p-3.5 shadow-sm border border-slate-200 space-y-2">
           <div class="text-xs font-extrabold text-slate-800">1. Chọn Inverter (${phaseInvs.length} mẫu ${s.phase}) hoặc nhập tay</div>
-          <div class="grid grid-cols-3 gap-1.5">
-            <select id="acBrand" class="col-span-1 text-xs border rounded-xl px-2 py-1.5 bg-slate-50 font-semibold">
-              ${brands.map(b => `<option value="${b}" ${b === s.invBrand ? 'selected' : ''}>${b === 'ALL' ? 'Tất cả' : b}</option>`).join('')}
+          <div class="grid grid-cols-2 gap-1.5">
+            <select id="acBrand" class="text-xs border rounded-xl px-2 py-1.5 bg-slate-50 font-semibold">
+              ${brands.map(b => {
+                const cnt = b === 'ALL' ? phaseInvs.length : phaseInvs.filter(x => x.manufacturer === b).length;
+                return `<option value="${b}" ${b === s.invBrand ? 'selected' : ''}>${b === 'ALL' ? `Tất cả hãng (${cnt})` : `${b} (${cnt})`}</option>`;
+              }).join('')}
             </select>
-            <select id="acInv" class="col-span-2 text-xs border border-sky-300 rounded-xl px-2 py-1.5 bg-sky-50/40 font-semibold">
-              <option value="">-- Nhập tay theo P (kW) --</option>
-              ${fInvs.map(i => `<option value="${i.id}" ${i.id === s.invId ? 'selected' : ''}>[${i.manufacturer}] ${i.model} (${i.rated_power_kw}kW)</option>`).join('')}
+            <select id="acType" class="text-xs border rounded-xl px-2 py-1.5 bg-slate-50 font-semibold">
+              <option value="ALL" ${s.invType==='ALL'?'selected':''}>Ongrid &amp; Hybrid (${phaseInvs.length})</option>
+              <option value="Ongrid" ${s.invType==='Ongrid'?'selected':''}>Ongrid (${phaseInvs.filter(x=>x.type==='Ongrid').length})</option>
+              <option value="Hybrid" ${s.invType==='Hybrid'?'selected':''}>Hybrid (${phaseInvs.filter(x=>x.type==='Hybrid').length})</option>
             </select>
           </div>
+          <select id="acInv" class="w-full text-xs border border-sky-300 rounded-xl px-2.5 py-2 bg-sky-50/40 font-semibold">
+            <option value="">-- Nhập tay theo công suất P (kW) --</option>
+            ${fInvs.map(i => `<option value="${i.id}" ${i.id === s.invId ? 'selected' : ''}>[${i.manufacturer}] ${i.model} — ${i.rated_power_kw}kW (${i.type})</option>`).join('')}
+          </select>
           <div class="grid grid-cols-2 gap-2 text-xs">
             <label><span class="text-[10px] text-slate-500">Chế độ tính</span>
               <select id="acMode" class="w-full border rounded-lg px-2 py-1.5 font-semibold bg-white">
@@ -5357,6 +5365,7 @@
       if (mpEl) mpEl.onchange = (e) => { s.manualNPar = Number(e.target.value); render(); };
 
       document.getElementById('acBrand').onchange = (e) => { s.invBrand = e.target.value; render(); };
+      document.getElementById('acType').onchange = (e) => { s.invType = e.target.value; render(); };
       document.getElementById('acInv').onchange = (e) => {
         s.invId = e.target.value;
         const inv = phaseInvs.find(x => x.id === s.invId);
