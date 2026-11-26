@@ -2167,78 +2167,136 @@
     ]
   },
   "derating_factors": {
-    "ambient_air_temp_kt": {
-      "XLPE": {
-        "10": 1.15,
-        "15": 1.12,
-        "20": 1.08,
-        "25": 1.04,
-        "30": 1.0,
-        "35": 0.96,
-        "40": 0.91,
-        "45": 0.87,
-        "50": 0.82,
-        "55": 0.76,
-        "60": 0.71,
-        "65": 0.65,
-        "70": 0.58,
-        "75": 0.5,
-        "80": 0.41
-      },
-      "PVC": {
-        "10": 1.22,
-        "15": 1.17,
-        "20": 1.12,
-        "25": 1.06,
-        "30": 1.0,
-        "35": 0.94,
-        "40": 0.87,
-        "45": 0.79,
-        "50": 0.71,
-        "55": 0.61,
-        "60": 0.5
-      }
+  "ambient_air_temp_kt": {
+    "XLPE": {
+      "10": 1.15,
+      "15": 1.12,
+      "20": 1.08,
+      "25": 1.04,
+      "30": 1.0,
+      "35": 0.96,
+      "40": 0.91,
+      "45": 0.87,
+      "50": 0.82,
+      "55": 0.76,
+      "60": 0.71,
+      "65": 0.65,
+      "70": 0.58,
+      "75": 0.5,
+      "80": 0.41
     },
-    "grouping_in_air_kg": {
-      "1": 1.0,
-      "2": 0.8,
-      "3": 0.7,
-      "4": 0.65,
-      "5": 0.6,
-      "6": 0.57,
-      "7": 0.54,
-      "8": 0.52,
-      "9": 0.5,
-      "12": 0.45,
-      "16": 0.41,
-      "20": 0.38
-    },
-    "grouping_buried_touching_kg": {
-      "1": 1.0,
-      "2": 0.75,
-      "3": 0.65,
-      "4": 0.6,
-      "5": 0.55,
-      "6": 0.5
-    },
-    "grouping_buried_spaced_1d_kg": {
-      "1": 1.0,
-      "2": 0.8,
-      "3": 0.7,
-      "4": 0.6,
-      "5": 0.55,
-      "6": 0.55
-    },
-    "soil_thermal_resistivity_ks": {
-      "0.5": 1.28,
-      "0.7": 1.2,
-      "1.0": 1.18,
-      "1.5": 1.1,
-      "2.0": 1.05,
-      "2.5": 1.0,
-      "3.0": 0.96
+    "PVC": {
+      "10": 1.22,
+      "15": 1.17,
+      "20": 1.12,
+      "25": 1.06,
+      "30": 1.0,
+      "35": 0.94,
+      "40": 0.87,
+      "45": 0.79,
+      "50": 0.71,
+      "55": 0.61,
+      "60": 0.5
     }
   },
+  "grouping_in_air_kg": {
+    "1": 1.0,
+    "2": 0.8,
+    "3": 0.7,
+    "4": 0.65,
+    "5": 0.6,
+    "6": 0.57,
+    "7": 0.54,
+    "8": 0.52,
+    "9": 0.5,
+    "12": 0.45,
+    "16": 0.41,
+    "20": 0.38
+  },
+  "grouping_buried_touching_kg": {
+    "1": 1.0,
+    "2": 0.75,
+    "3": 0.65,
+    "4": 0.6,
+    "5": 0.55,
+    "6": 0.5
+  },
+  "grouping_buried_spaced_1d_kg": {
+    "1": 1.0,
+    "2": 0.8,
+    "3": 0.7,
+    "4": 0.6,
+    "5": 0.55,
+    "6": 0.55
+  },
+  "soil_thermal_resistivity_ks": {
+    "0.5": 1.28,
+    "0.7": 1.2,
+    "1.0": 1.18,
+    "1.5": 1.1,
+    "2.0": 1.05,
+    "2.5": 1.0,
+    "3.0": 0.96
+  },
+  "ground_temp_kt": {
+    "XLPE": {
+      "10": 1.07,
+      "15": 1.04,
+      "20": 1.0,
+      "25": 0.96,
+      "30": 0.93,
+      "35": 0.89,
+      "40": 0.85,
+      "45": 0.8,
+      "50": 0.76,
+      "55": 0.71,
+      "60": 0.65,
+      "65": 0.6,
+      "70": 0.53,
+      "75": 0.46,
+      "80": 0.38
+    },
+    "PVC": {
+      "10": 1.1,
+      "15": 1.05,
+      "20": 1.0,
+      "25": 0.95,
+      "30": 0.89,
+      "35": 0.84,
+      "40": 0.77,
+      "45": 0.71,
+      "50": 0.63,
+      "55": 0.55,
+      "60": 0.45
+    }
+  },
+  "grouping_ducts_touching_kg": {
+    "1": 1.0,
+    "2": 0.85,
+    "3": 0.75,
+    "4": 0.7,
+    "5": 0.65,
+    "6": 0.6
+  },
+  "soil_thermal_resistivity_ks_duct_D1": {
+    "0.5": 1.28,
+    "0.7": 1.2,
+    "1.0": 1.18,
+    "1.5": 1.1,
+    "2.0": 1.05,
+    "2.5": 1.0,
+    "3.0": 0.96
+  },
+  "soil_thermal_resistivity_ks_direct_D2": {
+    "0.5": 1.88,
+    "0.7": 1.62,
+    "1.0": 1.5,
+    "1.5": 1.28,
+    "2.0": 1.12,
+    "2.5": 1.0,
+    "3.0": 0.9
+  }
+},
   "breakers": {
     "continuous_load_safety_factor": 1.25,
     "standard_ratings_a": [
@@ -4979,10 +5037,19 @@
       else if (inRating > 63 || s.iscGrid > 15) { family = 'MCCB'; standard = 'IEC 60947-2'; icuList = TABLES.breakers.families.MCCB.breaking_capacity_icu_ka; }
       const icuSel = icuList.find(k => k >= s.iscGrid) || icuList[icuList.length - 1];
 
-      const isBuried = s.method === 'duct_D1' || s.method === 'buried_D2';
-      const kt = lookupNearestKey(TABLES.derating_factors.ambient_air_temp_kt[s.ins], s.temp).value;
-      const kg = lookupNearestKey(isBuried ? TABLES.derating_factors.grouping_buried_touching_kg : TABLES.derating_factors.grouping_in_air_kg, s.group).value;
-      const ks = isBuried ? lookupNearestKey(TABLES.derating_factors.soil_thermal_resistivity_ks, 2.5).value : 1.0;
+      const isD1 = s.method === 'duct_D1';
+      const isD2 = s.method === 'buried_D2';
+      const isBuried = isD1 || isD2;
+      const ktTable = isBuried ? TABLES.derating_factors.ground_temp_kt[s.ins] : TABLES.derating_factors.ambient_air_temp_kt[s.ins];
+      const kt = lookupNearestKey(ktTable, s.temp).value;
+      const kgTable = isD1
+        ? TABLES.derating_factors.grouping_ducts_touching_kg
+        : (isD2 ? TABLES.derating_factors.grouping_buried_touching_kg : TABLES.derating_factors.grouping_in_air_kg);
+      const kg = lookupNearestKey(kgTable, s.group).value;
+      const soilRes = Number(s.soilRes) || 2.5;
+      const ks = isD1
+        ? lookupNearestKey(TABLES.derating_factors.soil_thermal_resistivity_ks_duct_D1, soilRes).value
+        : (isD2 ? lookupNearestKey(TABLES.derating_factors.soil_thermal_resistivity_ks_direct_D2, soilRes).value : 1.0);
       const kTotal = kt * kg * ks;
       const inEff = iReq;
       const cableList = TABLES.cables[`${s.mat}_${s.ins}`];
@@ -5065,11 +5132,11 @@
       },
       ac3: {
         phase: '3P', invBrand: 'ALL', invType: 'ALL', invId: '', mode: 'power', pKw: 100, iInput: 160.4, u: 400, pf: 1, wiring: '3P+N+PE', iscGrid: 25,
-        mat: 'Cu', ins: 'XLPE', struct: 'multicore', method: 'tray_E', len: 40, duLimit: 1.5, temp: 35, group: 1, sf: 1.25, cableMode: 'auto', manualSection: 95, manualNPar: 1
+        mat: 'Cu', ins: 'XLPE', struct: 'multicore', method: 'tray_E', len: 40, duLimit: 1.5, temp: 35, group: 1, soilRes: 2.5, sf: 1.25, cableMode: 'auto', manualSection: 95, manualNPar: 1
       },
       ac1: {
         phase: '1P', invBrand: 'ALL', invType: 'ALL', invId: '', mode: 'power', pKw: 5, iInput: 22.8, u: 230, pf: 1, wiring: '1P+N+PE', iscGrid: 6,
-        mat: 'Cu', ins: 'XLPE', struct: 'multicore', method: 'conduit_B2', len: 25, duLimit: 1.5, temp: 35, group: 1, sf: 1.25, cableMode: 'auto', manualSection: 10, manualNPar: 1
+        mat: 'Cu', ins: 'XLPE', struct: 'multicore', method: 'conduit_B2', len: 25, duLimit: 1.5, temp: 35, group: 1, soilRes: 2.5, sf: 1.25, cableMode: 'auto', manualSection: 10, manualNPar: 1
       },
       libTab: 'panels',
       adding: null
@@ -5347,7 +5414,23 @@
           <div class="grid grid-cols-3 gap-2 text-xs">
             <label><span class="text-[10px] text-slate-500">Dài L (m)</span><input id="acLen" type="number" value="${s.len}" class="w-full border rounded-lg px-2 py-1.5 font-bold tabular-nums" /></label>
             <label><span class="text-[10px] text-slate-500">ΔU max (%)</span><input id="acDu" type="number" step="0.1" value="${s.duLimit}" class="w-full border rounded-lg px-2 py-1.5 font-bold tabular-nums" /></label>
-            <label><span class="text-[10px] text-slate-500">Nhiệt độ (°C)</span><input id="acTemp" type="number" value="${s.temp}" class="w-full border rounded-lg px-2 py-1.5 font-bold tabular-nums" /></label>
+            <label><span class="text-[10px] text-slate-500">${(s.method === 'duct_D1' || s.method === 'buried_D2') ? 'T đất (°C)' : 'T mt (°C)'}</span><input id="acTemp" type="number" value="${s.temp}" class="w-full border rounded-lg px-2 py-1.5 font-bold tabular-nums" /></label>
+          </div>
+          <div class="grid ${(s.method === 'duct_D1' || s.method === 'buried_D2') ? 'grid-cols-2' : 'grid-cols-1'} gap-2 text-xs">
+            <label><span class="text-[10px] text-slate-500">Số mạch đi chung (Kg)</span>
+              <select id="acGroup" class="w-full border rounded-lg px-2 py-1.5 bg-slate-50 font-bold">
+                ${[1,2,3,4,5,6].map(g => `<option value="${g}" ${Number(s.group) === g ? 'selected' : ''}>${g} mạch</option>`).join('')}
+              </select>
+            </label>
+            ${(s.method === 'duct_D1' || s.method === 'buried_D2') ? `
+            <label><span class="text-[10px] text-slate-500">Nhiệt trở đất (K·m/W)</span>
+              <select id="acSoil" class="w-full border rounded-lg px-2 py-1.5 bg-slate-50 font-bold">
+                ${[0.5,0.7,1.0,1.5,2.0,2.5,3.0].map(sr => `<option value="${sr}" ${Number(s.soilRes || 2.5) === sr ? 'selected' : ''}>${sr.toFixed(1)}${sr === 2.5 ? ' (chuẩn)' : ''}</option>`).join('')}
+              </select>
+            </label>` : ''}
+          </div>
+          <div class="text-[10px] text-slate-500 bg-slate-50 rounded-lg px-2.5 py-1.5 border border-slate-200 tabular-nums">
+            Hệ số hiệu chỉnh: <b>K = ${r.kTotal.toFixed(3)}</b> (Kt=${r.kt.toFixed(2)} · Kg=${r.kg.toFixed(2)}${(s.method === 'duct_D1' || s.method === 'buried_D2') ? ` · Ks=${r.ks.toFixed(2)}` : ''})
           </div>
         </div>
       `;
@@ -5394,6 +5477,10 @@
       document.getElementById('acLen').onchange = (e) => { s.len = parseFloat(e.target.value) || s.len; render(); };
       document.getElementById('acDu').onchange = (e) => { s.duLimit = parseFloat(e.target.value) || s.duLimit; render(); };
       document.getElementById('acTemp').onchange = (e) => { s.temp = parseFloat(e.target.value) || s.temp; render(); };
+      const grpEl = document.getElementById('acGroup');
+      if (grpEl) grpEl.onchange = (e) => { s.group = Number(e.target.value) || 1; render(); };
+      const soilEl = document.getElementById('acSoil');
+      if (soilEl) soilEl.onchange = (e) => { s.soilRes = Number(e.target.value) || 2.5; render(); };
     }
 
     function renderLib(root) {
